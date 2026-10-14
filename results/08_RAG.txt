@@ -1,0 +1,128 @@
+======================================================================
+COMPLETE LOCAL OLLAMA RAG PIPELINE
+======================================================================
+[STAGE 1 : Ingestion]
+ Ingested document: 3019 characters
+[STAGE 2 : Chunking ]
+ Created 5 chunks from 5 sections
+ Chunk 0: [ACME CORPORATION — Q3 STRATEGIC PLANNING MEMO]17 words
+ Chunk 1: [EXECUTIVE SUMMARY]38 words
+ Chunk 2: [PRODUCT PORTFOLIO UPDATE]266 words
+ Chunk 3: [FINANCIAL OUTLOOK]29 words
+ Chunk 4: [RISK REGISTER]64 words
+[STAGE 3 : Embedding and Storage]
+ Embedded 5 chunks in 2.65s
+ Model: nomic-embed-text:latest
+ Dimensions: 768
+ Embedding tokens: 696
+
+======================================================================
+ANSWERING QUESTIONS
+======================================================================
+
+======================================================================
+Question 1: What was Product Alpha's Q2 revenue and how does it compare to forecast?
+======================================================================
+[Stage 4: Retrieval]
+ Retrieved 3 chunks in 33ms
+ [PRODUCT PORTFOLIO UPDATE] score=0.742: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+ [RISK REGISTER] score=0.619: 1. Dataview pricing pressure on Alpha (Impact: High, Likelihood: Medium) 2. Beta...
+ [FINANCIAL OUTLOOK] score=0.596: Q3 revenue target: $18.6M (combined). Operating margin target: 12%. Headcount pl...
+[STAGE 5 : Generation]
+ Model: qwen3.5:4b
+ Input tokens: 873
+ Output tokens: 31
+ API cost: $0.000000 (local inference)
+ Latency: 616ms
+
+ANSWER: Product Alpha generated **$12.4M** in Q2 revenue, which is **18% above forecast** [Source 1].
+
+======================================================================
+Question 2: What is causing Product Beta's churn problem?
+======================================================================
+[Stage 4: Retrieval]
+ Retrieved 3 chunks in 13ms
+ [RISK REGISTER] score=0.609: 1. Dataview pricing pressure on Alpha (Impact: High, Likelihood: Medium) 2. Beta...
+ [PRODUCT PORTFOLIO UPDATE] score=0.603: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+ [EXECUTIVE SUMMARY] score=0.471: Acme Corporation enters Q3 2025 with strong momentum from Product Alpha's enterp...
+[STAGE 5 : Generation]
+ Model: qwen3.5:4b
+ Input tokens: 858
+ Output tokens: 84
+ API cost: $0.000000 (local inference)
+ Latency: 1406ms
+
+ANSWER: Product Beta's churn problem is caused by a poor onboarding experience, specifically that 62% of churned customers never completed their initial setup [Source 2]. This has led to an increase in monthly churn from 2.8% in Q1 to 4.2% and a drop in customer satisfaction (CSAT) from 4.1 to 3.6 [Source 2].
+
+======================================================================
+Question 3: When is Product Gamma launching and what is the go-to-market budget?
+======================================================================
+[Stage 4: Retrieval]
+ Retrieved 3 chunks in 36ms
+ [PRODUCT PORTFOLIO UPDATE] score=0.638: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+ [RISK REGISTER] score=0.589: 1. Dataview pricing pressure on Alpha (Impact: High, Likelihood: Medium) 2. Beta...
+ [EXECUTIVE SUMMARY] score=0.566: Acme Corporation enters Q3 2025 with strong momentum from Product Alpha's enterp...
+[STAGE 5 : Generation]
+ Model: qwen3.5:4b
+ Input tokens: 863
+ Output tokens: 84
+ API cost: $0.000000 (local inference)
+ Latency: 1378ms
+
+ANSWER: Product Gamma is scheduled to launch on **September 15, 2025** [Source 1]. The go-to-market plan requires a **$3.2M** investment in Q3, allocated as follows:
+*   Product marketing: $1.4M
+*   Developer relations: $800K
+*   Launch events: $1M [Source 1]
+
+======================================================================
+Question 4: What are the highest-impact risks facing Acme this quarter?
+======================================================================
+[Stage 4: Retrieval]
+ Retrieved 3 chunks in 14ms
+ [EXECUTIVE SUMMARY] score=0.748: Acme Corporation enters Q3 2025 with strong momentum from Product Alpha's enterp...
+ [RISK REGISTER] score=0.596: 1. Dataview pricing pressure on Alpha (Impact: High, Likelihood: Medium) 2. Beta...
+ [PRODUCT PORTFOLIO UPDATE] score=0.492: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+[STAGE 5 : Generation]
+ Model: qwen3.5:4b
+ Input tokens: 862
+ Output tokens: 299
+ API cost: $0.000000 (local inference)
+ Latency: 4679ms
+
+ANSWER: Based on the retrieved context, the highest-impact risks facing Acme in Q3 2025 are those rated with a **High Impact** level:
+
+*   **Dataview pricing pressure on Product Alpha:** This is a high-impact risk driven by Dataview launching a competing product at a 40% lower price point. While the likelihood is medium, it has already resulted in three pipeline deals ($2.1M combined) entering competitive review where Dataview is winning on price but losing on reliability and integration depth [Source 1, Source 3].
+*   **Gamma launch delay:** This carries a high impact if API stability issues persist, though the likelihood is currently low [Source 2].
+*   **Macroeconomic slowdown affecting enterprise sales cycles:** This poses a high-impact risk with a medium likelihood of occurring [Source 2].
+*   **Key person risk:** There is a high-impact risk regarding three senior engineers on Product Alpha who have received external offers, with a medium likelihood [Source 2].
+
+Additionally, while rated as Medium Impact, the **Beta churn trajectory** is a critical concern due to a 4.2% monthly churn rate (up from 2.8% in Q1) and a CSAT drop to 3.6, driven by poor onboarding where 62% of churned customers never completed initial setup [Source 2, Source 3].
+
+======================================================================
+Question 5: How many new hires are planned and in which departments?
+======================================================================
+[Stage 4: Retrieval]
+ Retrieved 3 chunks in 13ms
+ [FINANCIAL OUTLOOK] score=0.608: Q3 revenue target: $18.6M (combined). Operating margin target: 12%. Headcount pl...
+ [ACME CORPORATION — Q3 STRATEGIC PLANNING MEMO] score=0.517: Prepared by: Sarah Chen, VP of Strategy Date: July 15, 2025 Classification: Inte...
+ [PRODUCT PORTFOLIO UPDATE] score=0.469: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+[STAGE 5 : Generation]
+ Model: qwen3.5:4b
+ Input tokens: 791
+ Output tokens: 63
+ API cost: $0.000000 (local inference)
+ Latency: 1058ms
+
+ANSWER: Based on the retrieved context, **14** new hires are planned across the following departments:
+
+*   **Engineering:** 8 hires [Source 1]
+*   **Sales:** 4 hires [Source 1]
+*   **Customer Success:** 2 hires [Source 1]
+
+======================================================================
+PIPELINE SUMMARY
+ Questions answered: 5
+ Total API cost: $0.000000
+ Average generation latency: 1827ms
+ Embedding time (one-time): 2.65s
+======================================================================
