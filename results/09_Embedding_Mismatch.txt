@@ -14,6 +14,25 @@ Query: What was the Q2 revenue for Product Alpha?
 
 Top result: Product Alpha Q2 revenue: $12.4M (18% above forecast).
 Top score: 0.8787
+======================================================================
+BROKEN SETUP: Different model for indexing and querying
+ Index model: nomic-embed-text:latest
+ Query model: embeddinggemma:latest
+======================================================================
+
+Query: What was the Q2 revenue for Product Alpha?
+
+ Score 0.0144: Product Alpha Q2 revenue: $12.4M (18% above forecast).
+ Score 0.0189: Product Beta churn increased to 4.2% monthly, up from 2.8% in Q1.
+ Score -0.0183: Product Gamma launch planned for September 15, 2025.
+ Score -0.0370: Q3 revenue target: $18.6M combined.
+ Score -0.0463: Dataview launched a competing product at 40% lower price point.
+
+Document vector dimensions: 768
+Query vector dimensions: 768
+
+Top result: Product Beta churn increased to 4.2% monthly, up from 2.8% in Q1.
+Top score: 0.0189
 
 ======================================================================
 BROKEN SETUP: Different models for indexing and querying
@@ -35,14 +54,14 @@ SUBTLER BUG: Same dimensions, different model versions
 
 Query: What was the Q2 revenue for Product Alpha?
 
- Original: 0.8787 Perturbed: 0.0853 Product Alpha Q2 revenue: $12.4M (18% above foreca...
- Original: 0.6394 Perturbed: 0.0839 Product Beta churn increased to 4.2% monthly, up f...
- Original: 0.5382 Perturbed: 0.0881 Product Gamma launch planned for September 15, 202...
- Original: 0.6570 Perturbed: 0.0887 Q3 revenue target: $18.6M combined....
- Original: 0.5594 Perturbed: 0.0928 Dataview launched a competing product at 40% lower...
+ Original: 0.0144 Perturbed: -0.0194 Product Alpha Q2 revenue: $12.4M (18% above foreca...
+ Original: 0.0189 Perturbed: 0.0088 Product Beta churn increased to 4.2% monthly, up f...
+ Original: -0.0183 Perturbed: 0.0207 Product Gamma launch planned for September 15, 202...
+ Original: -0.0370 Perturbed: 0.0047 Q3 revenue target: $18.6M combined....
+ Original: -0.0463 Perturbed: 0.0195 Dataview launched a competing product at 40% lower...
 
-Original top result: Product Alpha Q2 revenue: $12.4M (18% above forecast)....
-Perturbed top result: Dataview launched a competing product at 40% lower price poi...
+Original top result: Product Beta churn increased to 4.2% monthly, up from 2.8% i...
+Perturbed top result: Product Gamma launch planned for September 15, 2025....
 
 Ranking changed: True
 

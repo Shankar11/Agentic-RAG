@@ -45,6 +45,31 @@ scores.sort(reverse=True)
 
 print(f"\nTop result: {scores[0][1]}")
 print(f"Top score: {scores[0][0]:.4f}")
+# ============================================================
+# BROKEN: Different model for indexing and querying
+# ============================================================
+
+print("=" * 70)
+print("BROKEN SETUP: Different model for indexing and querying")
+print(" Index model: nomic-embed-text:latest")
+print(" Query model: embeddinggemma:latest")
+
+print("=" * 70)
+doc_vectors_small = embed(CHUNKS, "nomic-embed-text:latest")
+query_vector_small = embed([QUERY], "embeddinggemma:latest")[0]
+print(f"\nQuery: {QUERY}\n")
+scores = []
+
+for i, (chunk, doc_vec) in enumerate(zip(CHUNKS, doc_vectors_small)):
+    score = cosine_similarity(query_vector_small, doc_vec)
+    scores.append((score, chunk))
+    print(f" Score {score:.4f}: {chunk}")
+scores.sort(reverse=True)
+
+print(f"\nDocument vector dimensions: {doc_vectors_small[0].shape[0]}")
+print(f"Query vector dimensions: {query_vector_small.shape[0]}")
+print(f"\nTop result: {scores[0][1]}")
+print(f"Top score: {scores[0][0]:.4f}")
 
 # ============================================================
 # BROKEN: Different models for indexing and querying
