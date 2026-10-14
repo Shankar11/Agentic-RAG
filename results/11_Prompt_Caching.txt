@@ -1,0 +1,35 @@
+======================================================================
+OLLAMA PROMPT CACHING EXPERIMENT
+Model: qwen3.5:4b
+======================================================================
+
+FIRST REQUEST (Cold / initial prompt processing)
+ Input tokens: 196
+ Output tokens: 48
+ Prompt evaluation: 739.30 ms
+ Generation: 694.98 ms
+
+Answer: Based on the provided context, the current status of **Product Alpha** is as follows:
+
+*   **Q2 Revenue:** $12.4M
+*   **Performance vs. Forecast:** 18% above forecast
+Total latency: 5801.82 ms
+
+SECOND REQUEST (Potential cache reuse)
+ Input tokens: 196
+ Output tokens: 48
+ Prompt evaluation: 43.04 ms
+ Generation: 702.43 ms
+
+Answer: Based on the provided context, the current status of **Product Alpha** is as follows:
+
+*   **Q2 Revenue:** $12.4M
+*   **Performance vs. Forecast:** 18% above forecast
+Total latency: 755.93 ms
+
+======================================================================
+KEY INSIGHT
+Compare prompt evaluation times between the two requests.
+A lower second evaluation time may indicate prompt cache reuse.
+Ollama does not expose Anthropic-style cache hit token metrics.
+======================================================================

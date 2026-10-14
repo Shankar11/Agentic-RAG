@@ -1,0 +1,26 @@
+======================================================================
+PIPELINE LATENCY PROFILING
+Averaging over 3 runs
+======================================================================
+
+Stage                     Avg (ms)     Min (ms)     Max (ms)     Type        
+----------------------------------------------------------------------
+Chunking                  0.01         0.00         0.01         Offline     
+Doc Embedding             1206.22      135.71       3330.12      Offline     
+Query Embedding           18.46        12.45        28.87        Online      
+Vector Search             0.05         0.03         0.08         Online      
+Generation (Ollama)       3133.34      988.47       4862.19      Online      
+
+Total online latency      3151.85      ms
+
+Latency breakdown (online only):
+ Query embedding: 0.6%
+ Vector search: 0.0%
+ Generation: 99.4%
+
+======================================================================
+KEY INSIGHT: Generation (the LLM call) typically accounts for
+80-95% of online latency. Vector search is usually < 1%.
+Optimizing retrieval speed gives diminishing returns --
+optimize the generation prompt and model choice instead.
+======================================================================
