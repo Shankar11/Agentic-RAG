@@ -1,0 +1,49 @@
+{
+  "config": {
+    "version": "1.2.0",
+    "ingestion": {
+      "parser": "plain-text",
+      "supported_formats": [
+        "txt",
+        "md"
+      ]
+    },
+    "chunking": {
+      "strategy": "section",
+      "chunk_size": 500,
+      "chunk_overlap": 50
+    },
+    "embedding": {
+      "model": "nomic-embed-text:latest",
+      "dimensions": 768,
+      "provider": "ollama"
+    },
+    "retrieval": {
+      "top_k": 5,
+      "similarity_metric": "cosine",
+      "min_score_threshold": 0.0
+    },
+    "generation": {
+      "model": "qwen3.5:4b",
+      "max_tokens": 500,
+      "temperature": 0.0
+    }
+  },
+  "embedding_model": "nomic-embed-text:latest",
+  "dimensions": 768,
+  "chunks": [
+    {
+      "text": "Product Alpha revenue was revised to $15.2M.",
+      "section": "PRODUCT ALPHA",
+      "index": 0,
+      "doc_id": "acme-memo"
+    }
+  ],
+  "documents": {
+    "acme-memo": {
+      "text": "PRODUCT ALPHA\nProduct Alpha revenue was revised to $15.2M.\n",
+      "sha256": "7444935e71801c8338a2c12d6aefcac7ee46460d422651a66d97cd9432584eac"
+    }
+  },
+  "created_at": 1792084800.6254964
+}

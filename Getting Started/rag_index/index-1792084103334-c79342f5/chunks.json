@@ -1,0 +1,49 @@
+{
+  "config": {
+    "version": "1.2.0",
+    "ingestion": {
+      "parser": "plain-text",
+      "supported_formats": [
+        "txt",
+        "md"
+      ]
+    },
+    "chunking": {
+      "strategy": "section",
+      "chunk_size": 500,
+      "chunk_overlap": 50
+    },
+    "embedding": {
+      "model": "nomic-embed-text:latest",
+      "dimensions": 768,
+      "provider": "ollama"
+    },
+    "retrieval": {
+      "top_k": 5,
+      "similarity_metric": "cosine",
+      "min_score_threshold": 0.0
+    },
+    "generation": {
+      "model": "qwen3.5:4b",
+      "max_tokens": 500,
+      "temperature": 0.0
+    }
+  },
+  "embedding_model": "nomic-embed-text:latest",
+  "dimensions": 768,
+  "chunks": [
+    {
+      "text": "Revenue is $12.4M.",
+      "section": "PRODUCT ALPHA",
+      "index": 0,
+      "doc_id": "acme-memo"
+    }
+  ],
+  "documents": {
+    "acme-memo": {
+      "text": "PRODUCT ALPHA\nRevenue is $12.4M.",
+      "sha256": "f6268b2cea39ce19b56654e18aad69f32e47b39b874034962a847281a6237319"
+    }
+  },
+  "created_at": 1792084103.3354013
+}
