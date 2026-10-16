@@ -1,0 +1,45 @@
+======================================================================
+PINECONE VECTOR DATABASE DEMO
+======================================================================
+[CREATE INDEX]
+Index 'acme-rag-demo' already exists. Deleting for clean demo...
+ Creating index 'acme-rag-demo'...
+ Index 'acme-rag-demo' is ready.
+
+[UPSERT] Adding 6 chunks...
+Total vectors in index: 6
+
+[QUERY] 'What was Product Alpha's Q2 revenue?'
+ Found 3 results:
+ Score: 0.7583 | Section: Product Alpha
+ Text: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+ Score: 0.6660 | Section: Product Gamma
+ Text: Product Gamma (AI Data Assistant — New) Status: Private beta with 12 design part...
+ Score: 0.6183 | Section: Financial Outlook
+ Text: Q3 revenue target: $18.6M (combined). Operating margin target: 12%. Headcount pl...
+
+[QUERY] 'What are the main risks?'
+ Filter: {'section': {'$eq': 'Risk Register'}}
+ Found 1 results:
+ Score: 0.6086 | Section: Risk Register
+ Text: Risk Register: 1. Dataview pricing pressure on Alpha (Impact: High, Likelihood: ...
+
+[QUERY] 'What is the churn rate?'
+ Filter: {'section': {'$in': ['Product Beta', 'Product Alpha']}}
+ Found 2 results:
+ Score: 0.5317 | Section: Product Beta
+ Text: Product Beta (SMB Reporting Tool) Q2 revenue: $3.8M (6% below forecast). Churn i...
+ Score: 0.4515 | Section: Product Alpha
+ Text: Product Alpha (Enterprise Analytics Platform) Q2 revenue: $12.4M (18% above fore...
+
+[UPDATE] Updating metadata for 'acme-q3-alpha'
+ Updated: {'last_reviewed': '2025-07-20', 'reviewer': 'engineering-lead'}
+
+[DELETE] Deleting 1 vectors by ID
+ Remaining vector: 5
+
+[FINAL STATE]
+ Total Vectors: 5
+
+ [CLEAN UP] Deleting index 'acme-rag-demo'...
+ Done. 
