@@ -1,0 +1,71 @@
+Vector magnitudes (should be ~`.0 if normalized):
+ Chunk 0: 1.000000
+ Chunk 1: 1.000000
+ Chunk 2: 1.000000
+ Chunk 3: 1.000000
+ Chunk 4: 1.000000
+ Average: 1.000000 (normalized)
+
+======================================================================
+Query: What was Alpha's revenue?
+======================================================================
+
+Rank   Cosine                         Dot Product                    Euclidean                     
+------------------------------------------------------------------------------------------------
+ 1    Chunk 0 (0.7569) Chunk 0 (0.7569) Chunk 0 (0.6973)
+ 2    Chunk 3 (0.5826) Chunk 3 (0.5826) Chunk 3 (0.9137)
+ 3    Chunk 1 (0.5327) Chunk 1 (0.5327) Chunk 1 (0.9667)
+ 4    Chunk 2 (0.5250) Chunk 2 (0.5250) Chunk 2 (0.9746)
+ 5    Chunk 4 (0.4835) Chunk 4 (0.4835) Chunk 4 (1.0164)
+
+ Cosine == Dot Product rankings: True
+ All three agree: True
+
+======================================================================
+KEY INSIGHT: For nomic-embed-text:latest (nearly normalized vectors),
+cosine similarity and dot product produce identical rankings.
+Euclidean distance usually agrees but can differ slightly.
+Use cosine similarity as the default -- it's the most robust.
+======================================================================
+======================================================================
+Query: Is Beta losing customers?
+======================================================================
+
+Rank   Cosine                         Dot Product                    Euclidean                     
+------------------------------------------------------------------------------------------------
+ 1    Chunk 1 (0.6365) Chunk 1 (0.6365) Chunk 1 (0.8526)
+ 2    Chunk 2 (0.5653) Chunk 2 (0.5653) Chunk 2 (0.9325)
+ 3    Chunk 0 (0.5410) Chunk 0 (0.5410) Chunk 0 (0.9581)
+ 4    Chunk 4 (0.4804) Chunk 4 (0.4804) Chunk 4 (1.0194)
+ 5    Chunk 3 (0.4608) Chunk 3 (0.4608) Chunk 3 (1.0385)
+
+ Cosine == Dot Product rankings: True
+ All three agree: True
+
+======================================================================
+KEY INSIGHT: For nomic-embed-text:latest (nearly normalized vectors),
+cosine similarity and dot product produce identical rankings.
+Euclidean distance usually agrees but can differ slightly.
+Use cosine similarity as the default -- it's the most robust.
+======================================================================
+======================================================================
+Query: When does Gamma launch?
+======================================================================
+
+Rank   Cosine                         Dot Product                    Euclidean                     
+------------------------------------------------------------------------------------------------
+ 1    Chunk 2 (0.7771) Chunk 2 (0.7771) Chunk 2 (0.6676)
+ 2    Chunk 1 (0.4588) Chunk 1 (0.4588) Chunk 1 (1.0404)
+ 3    Chunk 3 (0.4460) Chunk 3 (0.4460) Chunk 3 (1.0526)
+ 4    Chunk 0 (0.4444) Chunk 0 (0.4444) Chunk 0 (1.0541)
+ 5    Chunk 4 (0.4333) Chunk 4 (0.4333) Chunk 4 (1.0646)
+
+ Cosine == Dot Product rankings: True
+ All three agree: True
+
+======================================================================
+KEY INSIGHT: For nomic-embed-text:latest (nearly normalized vectors),
+cosine similarity and dot product produce identical rankings.
+Euclidean distance usually agrees but can differ slightly.
+Use cosine similarity as the default -- it's the most robust.
+======================================================================

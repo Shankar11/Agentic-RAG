@@ -102,7 +102,7 @@ REGION = "us-east-1"
 # INITIALIZE CLIENTS
 # ============================================================
 pc = Pinecone(api_key=PINECONE_API_KEY)
-ollama_client = Client(host=os.getenv("OLLAMA_HOST", "http://localhost:11434"))
+ollama_client = Client(host=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"))
 def embed_texts(texts: list[str]) -> list[list[float]]:
     """Embed a list of texts using Ollama."""
     response = ollama_client.embed(

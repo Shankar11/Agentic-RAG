@@ -1,0 +1,59 @@
+Building index with metadata...
+Indexed 6 chunks with metadata.
+
+============================================================
+EXPERIMENT: No filter (all chunks)
+Query: What is the revenue performance?
+============================================================
+ Score: 0.6559 | All    | Financial  | Q3 revenue target: $18.6M combined. Operating marg...
+ Score: 0.6408 | Beta   | Revenue    | Product Beta Q2 revenue: $3.8M, 6% below forecast....
+ Score: 0.6268 | Alpha  | Revenue    | Product Alpha Q2 revenue: $12.4M, 18% above foreca...
+
+============================================================
+EXPERIMENT: Filter: Product = Alpha only
+Filter: {'product': {'$eq': 'Alpha'}}
+Query: What is the revenue performance?
+============================================================
+ Score: 0.6268 | Alpha  | Revenue    | Product Alpha Q2 revenue: $12.4M, 18% above foreca...
+ Score: 0.4525 | Alpha  | Risk       | Dataview launched competing product at 40% lower p...
+
+============================================================
+EXPERIMENT: Filter: Product = Beta only
+Filter: {'product': {'$eq': 'Beta'}}
+Query: What is the revenue performance?
+============================================================
+ Score: 0.6408 | Beta   | Revenue    | Product Beta Q2 revenue: $3.8M, 6% below forecast....
+ Score: 0.4461 | Beta   | Churn      | Beta churn increased to 4.2% monthly, up from 2.8%...
+
+============================================================
+EXPERIMENT: Filter: Section = Revenue only
+Filter: {'section': {'$eq': 'Revenue'}}
+Query: What is the revenue performance?
+============================================================
+ Score: 0.6408 | Beta   | Revenue    | Product Beta Q2 revenue: $3.8M, 6% below forecast....
+ Score: 0.6268 | Alpha  | Revenue    | Product Alpha Q2 revenue: $12.4M, 18% above foreca...
+
+============================================================
+EXPERIMENT: Filter: Revenue > $5M
+Filter: {'revenue_millions': {'$gt': 5.0}}
+Query: What is the revenue performance?
+============================================================
+ Score: 0.6559 | All    | Financial  | Q3 revenue target: $18.6M combined. Operating marg...
+ Score: 0.6268 | Alpha  | Revenue    | Product Alpha Q2 revenue: $12.4M, 18% above foreca...
+
+============================================================
+EXPERIMENT: Filter: Product in [Alpha, Gamma]
+Filter: {'product': {'$in': ['Alpha', 'Gamma']}}
+Query: What is the revenue performance?
+============================================================
+ Score: 0.6559 | All    | Financial  | Q3 revenue target: $18.6M combined. Operating marg...
+ Score: 0.6408 | Beta   | Revenue    | Product Beta Q2 revenue: $3.8M, 6% below forecast....
+ Score: 0.6268 | Alpha  | Revenue    | Product Alpha Q2 revenue: $12.4M, 18% above foreca...
+
+============================================================
+KEY INSIGHT: Metadata filtering is essential for multi-document
+systems. Without filters, a revenue query returns chunks from
+all products. With filters, you can scope results precisely.
+Design your metadata schema carefully -- you cannot filter on
+fields you did not store.
+============================================================
