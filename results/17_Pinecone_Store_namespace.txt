@@ -1,0 +1,87 @@
+======================================================================
+PINECONE VECTOR DATABASE DEMO
+======================================================================
+[CREATE INDEX]
+ Creating index 'acme-rag-demo'...
+ Index 'acme-rag-demo' is ready.
+
+[UPSERT] Adding 6 chunks to namespace 'memos'...
+ Total vectors in index: 6
+ Vectors in 'memos': 6
+
+[UPSERT] Adding 3 chunks to namespace 'specs'...
+ Total vectors in index: 9
+ Vectors in 'specs': 3
+
+[NAMESPACE ISOLATION TEST]
+
+[QUERY] 'Product Alpha revenue and API' | Namespace: memos
+ Found 6 results:
+ Score: 0.7716 | Section: Product Alpha
+ Text: Product Alpha (Enterprise Analytics Platform): Q2 revenue: $12.4M (18% above for...
+ Score: 0.6436 | Section: Product Beta
+ Text: Product Beta (SMB Reporting Tool): Q2 revenue: $3.8M (6% below forecast). Churn ...
+ Score: 0.6246 | Section: Product Gamma
+ Text: Product Gamma (AI Data Assistant — New): Private beta with 12 design partners. L...
+ Score: 0.6091 | Section: Executive Summary
+ Text: Acme Corporation enters Q3 2025 with strong momentum from Product Alpha's enterp...
+ Score: 0.5765 | Section: Risk Register
+ Text: Risk Register: 1. Dataview pricing pressure on Alpha (High/Medium). 2. Beta chur...
+ Score: 0.5483 | Section: Financial Outlook
+ Text: Q3 revenue target: $18.6M (combined). Operating margin target: 12%....
+
+[QUERY] 'Product Alpha revenue and API' | Namespace: specs
+ Found 3 results:
+ Score: 0.7363 | Section: Alpha API Specification
+ Text: Product Alpha specification: REST API with JSON responses, OAuth 2.0 authenticat...
+ Score: 0.6410 | Section: Beta Reporting Specification
+ Text: Product Beta specification: CSV and Excel exports, configurable dashboards, and ...
+ Score: 0.5694 | Section: Gamma Integration Specification
+ Text: Product Gamma specification: SDK integration, semantic document search, and role...
+ Namespace isolation verified: 6 memo results and 3 spec results; no cross-namespace matches.
+
+[QUERY] 'What was Product Alpha's Q2 revenue?' | Namespace: memos
+ Found 3 results:
+ Score: 0.8371 | Section: Product Alpha
+ Text: Product Alpha (Enterprise Analytics Platform): Q2 revenue: $12.4M (18% above for...
+ Score: 0.7113 | Section: Product Beta
+ Text: Product Beta (SMB Reporting Tool): Q2 revenue: $3.8M (6% below forecast). Churn ...
+ Score: 0.6562 | Section: Executive Summary
+ Text: Acme Corporation enters Q3 2025 with strong momentum from Product Alpha's enterp...
+
+[QUERY] 'What are the main risks?' | Namespace: memos
+ Filter: {'section': {'$eq': 'Risk Register'}}
+ Found 1 results:
+ Score: 0.5953 | Section: Risk Register
+ Text: Risk Register: 1. Dataview pricing pressure on Alpha (High/Medium). 2. Beta chur...
+
+[QUERY] 'What is the churn rate?' | Namespace: memos
+ Filter: {'section': {'$in': ['Product Beta', 'Product Alpha']}}
+ Found 2 results:
+ Score: 0.5663 | Section: Product Beta
+ Text: Product Beta (SMB Reporting Tool): Q2 revenue: $3.8M (6% below forecast). Churn ...
+ Score: 0.4401 | Section: Product Alpha
+ Text: Product Alpha (Enterprise Analytics Platform): Q2 revenue: $12.4M (18% above for...
+
+[QUERY] 'What authentication does the Product Alpha API support?' | Namespace: specs
+ Found 3 results:
+ Score: 0.7947 | Section: Alpha API Specification
+ Text: Product Alpha specification: REST API with JSON responses, OAuth 2.0 authenticat...
+ Score: 0.5968 | Section: Gamma Integration Specification
+ Text: Product Gamma specification: SDK integration, semantic document search, and role...
+ Score: 0.5895 | Section: Beta Reporting Specification
+ Text: Product Beta specification: CSV and Excel exports, configurable dashboards, and ...
+
+[UPDATE] Updating metadata for 'acme-q3-alpha'
+ Updated: {'last_reviewed': '2025-07-20', 'reviewer': 'engineering-lead'}
+
+[DELETE] Deleting 1 vectors by ID
+ Remaining vectors: 8
+
+[FINAL STATE]
+ Total vectors: 8
+ Namespace 'memos': 5 vectors
+ Namespace 'specs': 3 vectors
+
+[CLEANUP] Deleting index 'acme-rag-demo'...
+ Done.
