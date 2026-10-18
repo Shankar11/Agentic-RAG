@@ -12,6 +12,7 @@ import numpy as np
 import time
 from ollama import Client
 from typing import Any
+import os
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
@@ -163,7 +164,7 @@ if __name__ == "__main__":
     texts = [c["text"] for c in CHUNKS]
     vectors = embed(texts)
     records = [
-        {"id": c["id"], "vector": v, "metadata": c["metadata"]}
+        {"id": c["id"],"text": c["text"], "vector": v, "metadata": c["metadata"]}
         for c, v in zip(CHUNKS, vectors)
     ]
     store.upsert(records)

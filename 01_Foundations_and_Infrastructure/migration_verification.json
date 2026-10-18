@@ -1,0 +1,292 @@
+{
+  "source_index": "acme-rag-demo",
+  "target_index": "acme-rag-demo-migrated",
+  "model_a": "nomic-embed-text:latest",
+  "model_b": "all-minilm:33m",
+  "namespace": "",
+  "documents": 3,
+  "average_top3_overlap": 1.0,
+  "comparisons": [
+    {
+      "query": "What is Product Alpha Q2 revenue?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "How many contracts did Alpha win?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "How does Alpha compare with forecast?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is Beta churn?",
+      "source_top3": [
+        "memo_002",
+        "memo_003",
+        "memo_001"
+      ],
+      "target_top3": [
+        "memo_002",
+        "memo_001",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "Why is Beta losing customers?",
+      "source_top3": [
+        "memo_002",
+        "memo_001",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_002",
+        "memo_001",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is Beta Q2 revenue?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "When does Gamma launch?",
+      "source_top3": [
+        "memo_003",
+        "memo_002",
+        "memo_001"
+      ],
+      "target_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "How many Gamma design partners?",
+      "source_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is Gamma pricing?",
+      "source_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is the Q3 revenue target?",
+      "source_top3": [
+        "memo_001",
+        "memo_003",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is the operating margin target?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_003",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What hiring is planned?",
+      "source_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What are the biggest business risks?",
+      "source_top3": [
+        "memo_002",
+        "memo_001",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "Who competes with Alpha?",
+      "source_top3": [
+        "memo_001",
+        "memo_003",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_003",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is Dataview pricing?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "Which deals are at risk?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is the customer satisfaction score?",
+      "source_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What are the launch risks?",
+      "source_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_003",
+        "memo_001",
+        "memo_002"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What are Acme quarterly priorities?",
+      "source_top3": [
+        "memo_001",
+        "memo_003",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    },
+    {
+      "query": "What is the Q3 financial outlook?",
+      "source_top3": [
+        "memo_001",
+        "memo_003",
+        "memo_002"
+      ],
+      "target_top3": [
+        "memo_001",
+        "memo_002",
+        "memo_003"
+      ],
+      "top3_overlap": 1.0
+    }
+  ],
+  "passed": true
+}

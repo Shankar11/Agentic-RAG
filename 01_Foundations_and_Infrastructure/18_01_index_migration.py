@@ -17,7 +17,7 @@ load_dotenv(override=True)
 
 SOURCE_INDEX = os.getenv('SOURCE_INDEX', 'acme-rag-demo')
 TARGET_INDEX = os.getenv('TARGET_INDEX', 'acme-rag-demo-migrated')
-NAMESPACE = os.getenv('PINECONE_NAMESPACE', 'memos')
+NAMESPACE = os.getenv('PINECONE_NAMESPACE', '')
 MODEL_A = os.getenv('OLLAMA_EMBED_MODEL', 'nomic-embed-text:latest')
 MODEL_B = os.getenv('OLLAMA_EMBED_MODEL_B', 'all-minilm:33m')
 DOCUMENTS_FILE = os.getenv('DOCUMENTS_FILE', 'migration_documents.json')
