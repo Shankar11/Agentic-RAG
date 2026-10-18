@@ -1,0 +1,15 @@
+uv run .\18_Pinecone_Latency_Benchmark.py
+Creating Pinecone index: acme-rag-demo
+Index 'acme-rag-demo' is ready.
+k= 1: mean=222.37 ms, median=222.82 ms, min=218.90 ms, max=225.13 ms
+k= 5: mean=224.93 ms, median=223.25 ms, min=219.07 ms, max=259.82 ms
+k=10: mean=234.16 ms, median=223.94 ms, min=220.28 ms, max=282.01 ms
+k=20: mean=227.94 ms, median=224.06 ms, min=219.90 ms, max=266.54 ms
+k=50: mean=227.70 ms, median=223.16 ms, min=219.83 ms, max=261.55 ms
+
+Median latency ratio (k=50 / k=1): 1.00x
+A linear relationship cannot be assumed; compare your chart with multiple runs and index sizes.
+Saved pinecone_latency_results.csv and pinecone_latency_plot.png
+
+
+======================================

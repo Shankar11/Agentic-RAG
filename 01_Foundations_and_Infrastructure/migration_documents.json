@@ -1,0 +1,5 @@
+[
+  {"id": "memo_001", "text": "Product Alpha Q2 revenue: $12.4M (18% above forecast)", "metadata": {"section": "Product Alpha"}},
+  {"id": "memo_002", "text": "Product Beta churn increased to 4.2% monthly, up from 2.8% in Q1.", "metadata": {"section": "Product Beta"}},
+  {"id": "memo_003", "text": "Product Gamma launch planned for September 15, 2025.", "metadata": {"section": "Product Gamma"}}
+]
