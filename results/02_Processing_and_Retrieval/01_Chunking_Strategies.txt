@@ -1,0 +1,111 @@
+ UnsupportedFieldAttributeWarning: The 'validate_default' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'validate_default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+Chunking Strategy Comparison
+Document: Acme Corp Q3 Strategy Memo (excerpt)
+Document length: 1755 characters
+
+======================================================================
+ Strategy: Fixed-Size (400 chars, 50 overlap)
+ Total chunks: 6
+ Avg chunk size: 326 chars
+======================================================================
+
+ --- Chunk 1 (399 chars) ---
+ Executive Summary  Acme Corporation enters Q3 2024 with strong momentum across our product portfolio. Product Alpha achieved Q2 revenue of $12.4M, rep...
+
+ --- Chunk 2 (400 chars) ---
+ r the pricing restructure in Q1. While churn remains elevated at 4.2% (target: <3%), the new onboarding flow has reduced time-to-value by 40%. We expe...
+
+ --- Chunk 3 (400 chars) ---
+ trong product-market fit in the mid-market segment, with a projected ASP of $45K.  Q3 Financial Targets Combined Q3 revenue target: $18.6M - Product A...
+
+ --- Chunk 4 (400 chars) ---
+ High, Probability: Medium). Mitigation: Accelerate Alpha's API platform release. 2. Beta churn exceeding 5% threshold (Impact: Medium, Probability: Me...
+
+ --- Chunk 5 (354 chars) ---
+ gineering leads. 4. Key person dependency on Alpha's ML infrastructure team (Impact: Medium, Probability: Low). Mitigation: Cross-training program ini...
+
+ --- Chunk 6 (4 chars) ---
+ ons.
+
+======================================================================
+ Strategy: Sentence-Based / LlamaIndex SentenceSplitter (400 chars)
+ Total chunks: 2
+ Avg chunk size: 985 chars
+======================================================================
+
+ --- Chunk 1 (1565 chars) ---
+ Executive Summary  Acme Corporation enters Q3 2024 with strong momentum across our product portfolio. Product Alpha achieved Q2 revenue of $12.4M, rep...
+
+ --- Chunk 2 (405 chars) ---
+ Mitigation: Weekly launch readiness reviews with engineering leads. 4. Key person dependency on Alpha's ML infrastructure team (Impact: Medium, Probab...
+
+======================================================================
+ Strategy: Recursive / LangChain (400 chars, 50 overlap)
+ Total chunks: 6
+ Avg chunk size: 291 chars
+======================================================================
+
+ --- Chunk 1 (299 chars) ---
+ Executive Summary  Acme Corporation enters Q3 2024 with strong momentum across our product portfolio. Product Alpha achieved Q2 revenue of $12.4M, rep...
+
+ --- Chunk 2 (263 chars) ---
+ Product Beta stabilized at $3.8M Q2 revenue after the pricing restructure in Q1. While churn remains elevated at 4.2% (target: <3%), the new onboardin...
+
+ --- Chunk 3 (394 chars) ---
+ Product Gamma remains in private beta with 47 design partners. Launch is scheduled for September 15, 2024. Early feedback indicates strong product-mar...
+
+ --- Chunk 4 (385 chars) ---
+ Risk Register 1. Competitive threat from Nexus Corp's new enterprise offering (Impact: High, Probability: Medium). Mitigation: Accelerate Alpha's API ...
+
+ --- Chunk 5 (357 chars) ---
+ Mitigation: Weekly launch readiness reviews with engineering leads. 4. Key person dependency on Alpha's ML infrastructure team (Impact: Medium, Probab...
+
+ --- Chunk 6 (47 chars) ---
+ architecture review for data residency options.
+
+======================================================================
+ Strategy: Semantic (paragraph-boundary heuristic)
+ Total chunks: 10
+ Avg chunk size: 174 chars
+======================================================================
+
+ --- Chunk 1 (217 chars) ---
+ Executive Summary  Acme Corporation enters Q3 2024 with strong momentum across our product portfolio. Product Alpha achieved Q2 revenue of $12.4M, rep...
+
+ --- Chunk 2 (162 chars) ---
+ Enterprise adoption continues to accelerate, with 23 new logos added in Q2 alone. Product Beta stabilized at $3.8M Q2 revenue after the pricing restru...
+
+ --- Chunk 3 (182 chars) ---
+ While churn remains elevated at 4.2% (target: <3%), the new onboarding flow has reduced time-to-value by 40%. We expect churn improvements to material...
+
+ --- Chunk 4 (214 chars) ---
+ Product Gamma remains in private beta with 47 design partners. Launch is scheduled for September 15, 2024. Early feedback indicates strong product-mar...
+
+ --- Chunk 5 (196 chars) ---
+ Q3 Financial Targets Combined Q3 revenue target: $18.6M - Product Alpha: $14.2M (Q3 target) - Product Beta: $4.0M (Q3 target) - Product Gamma: $0.4M (...
+
+ --- Chunk 6 (153 chars) ---
+ Competitive threat from Nexus Corp's new enterprise offering (Impact: High, Probability: Medium). Mitigation: Accelerate Alpha's API platform release....
+
+ --- Chunk 7 (214 chars) ---
+ Beta churn exceeding 5% threshold (Impact: Medium, Probability: Medium). Mitigation: Dedicated customer success team for at-risk accounts. 3. Gamma la...
+
+ --- Chunk 8 (162 chars) ---
+ Mitigation: Weekly launch readiness reviews with engineering leads. 4. Key person dependency on Alpha's ML infrastructure team (Impact: Medium, Probab...
+
+ --- Chunk 9 (159 chars) ---
+ Mitigation: Cross-training program initiated in Q2. 5. Regulatory changes in EU market affecting data processing capabilities (Impact: High, Probabili...
+
+ --- Chunk 10 (82 chars) ---
+ Mitigation: Legal team monitoring; architecture review for data residency options.
+
+======================================================================
+ COMPARISON SUMMARY
+======================================================================
+ Strategy                            Chunks     Avg Size     Min      
+ ----------------------------------- ---------- ------------ -------- --------
+ Fixed-Size                          6          326          4        400     
+ Sentence-Based                      2          985          405      1565    
+ Recursive                           6          291          47       394     
+ Semantic                            10         174          82       217     
