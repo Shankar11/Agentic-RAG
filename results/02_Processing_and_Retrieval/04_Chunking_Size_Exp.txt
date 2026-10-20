@@ -1,0 +1,74 @@
+======================================================================
+ EXPERIMENT: Chunk Size vs. Retrieval Quality
+======================================================================
+
+ Chunk size: 100 chars (overlap: 20)
+ Chunks: 25
+ Retrieval precision (top-1): 40% (2/5)
+ Avg top similarity: 0.7379
+ Embedding cost: $0.000000
+
+ Chunk size: 200 chars (overlap: 20)
+ Chunks: 11
+ Retrieval precision (top-1): 80% (4/5)
+ Avg top similarity: 0.6927
+ Embedding cost: $0.000000
+
+ Chunk size: 300 chars (overlap: 30)
+ Chunks: 7
+ Retrieval precision (top-1): 80% (4/5)
+ Avg top similarity: 0.6704
+ Embedding cost: $0.000000
+
+ Chunk size: 400 chars (overlap: 40)
+ Chunks: 5
+ Retrieval precision (top-1): 80% (4/5)
+ Avg top similarity: 0.6546
+ Embedding cost: $0.000000
+
+ Chunk size: 500 chars (overlap: 50)
+ Chunks: 4
+ Retrieval precision (top-1): 60% (3/5)
+ Avg top similarity: 0.6403
+ Embedding cost: $0.000000
+
+ Chunk size: 750 chars (overlap: 75)
+ Chunks: 3
+ Retrieval precision (top-1): 40% (2/5)
+ Avg top similarity: 0.5923
+ Embedding cost: $0.000000
+
+ Chunk size: 1000 chars (overlap: 100)
+ Chunks: 2
+ Retrieval precision (top-1): 40% (2/5)
+ Avg top similarity: 0.6087
+ Embedding cost: $0.000000
+
+ Chunk size: 1500 chars (overlap: 150)
+ Chunks: 2
+ Retrieval precision (top-1): 80% (4/5)
+ Avg top similarity: 0.5643
+ Embedding cost: $0.000000
+
+ Chunk size: 2000 chars (overlap: 200)
+ Chunks: 1
+ Retrieval precision (top-1): 100% (5/5)
+ Avg top similarity: 0.5518
+ Embedding cost: $0.000000
+
+======================================================================
+ SUMMARY
+======================================================================
+ Size     Chunks   Precision    Avg Sim    Cost        
+ -------- -------- ------------ ---------- ------------
+ 100      25       40%          0.7379     $0.000000   
+ 200      11       80%          0.6927     $0.000000   
+ 300      7        80%          0.6704     $0.000000   
+ 400      5        80%          0.6546     $0.000000   
+ 500      4        60%          0.6403     $0.000000   
+ 750      3        40%          0.5923     $0.000000   
+ 1000     2        40%          0.6087     $0.000000   
+ 1500     2        80%          0.5643     $0.000000   
+ 2000     1        100%         0.5518     $0.000000   
+
+ Optimal chunk size: 2000 chars (precision: 100%)
