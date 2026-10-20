@@ -1,0 +1,22 @@
+Total nodes: 3
+Leaf (child) nodes: 2
+> Merging 2 nodes into parent node.
+> Parent node id: 2a28ba4c-362b-4bdb-ad10-b2ea1873a2f7.
+> Parent node text: Product Alpha (Enterprise Analytics Platform)
+Q2 revenue: $12.4M (18% above forecast). Alpha secu...
+
+
+Query: What are the Q3 risks for Product Alpha?
+Retrieved 1 node(s) (after merging to parents):
+ [1037 chars] Product Alpha (Enterprise Analytics Platform)
+Q2 revenue: $12.4M (18% above fore...
+> Merging 2 nodes into parent node.
+> Parent node id: 2a28ba4c-362b-4bdb-ad10-b2ea1873a2f7.
+> Parent node text: Product Alpha (Enterprise Analytics Platform)
+Q2 revenue: $12.4M (18% above forecast). Alpha secu...
+
+
+Query: What is the revenue performance across all products?
+Retrieved 1 node(s) (after merging to parents):
+ [1037 chars] Product Alpha (Enterprise Analytics Platform)
+Q2 revenue: $12.4M (18% above fore...
