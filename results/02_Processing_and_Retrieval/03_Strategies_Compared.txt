@@ -1,0 +1,93 @@
+============================================================
+ Chunking Strategy Comparison on Acme Corp Memo
+============================================================
+
+============================================================
+ Strategy: Fixed-Size (400 chars)
+ Chunks: 5, Avg size: 389 chars
+============================================================
+
+ Q: What is Product Alpha's revenue?
+ A: Product Alpha achieved Q2 revenue of $12.4M, and it brought the company's ARR to $48.2M.
+ Top chunk similarity: 0.642
+
+ Q: What is the churn rate for Beta?
+ A: 5%
+ Top chunk similarity: 0.713
+
+ Q: When does Gamma launch?
+ A: Gamma launches on September 15, 2024.
+ Top chunk similarity: 0.648
+
+ Q: What are the main risks?
+ A: The main risks identified in the context are:
+
+1.  Accelerating Alpha's API platform release.
+2.  Beta churn exceeding a 5% threshold.
+3.  Gamma launc
+ Top chunk similarity: 0.517
+
+ Q: What is the combined Q3 revenue target?
+ A: $18.6M
+ Top chunk similarity: 0.675
+
+============================================================
+ Strategy: Recursive / LangChain
+ Chunks: 5, Avg size: 358 chars
+============================================================
+
+ Q: What is Product Alpha's revenue?
+ A: The context indicates that Product Alpha achieved **$12.4M** in revenue during Q2 2024, with a projected Q3 revenue target of **$14.2M**.
+ Top chunk similarity: 0.646
+
+ Q: What is the churn rate for Beta?
+ A: Not found in context.
+ Top chunk similarity: 0.720
+
+ Q: When does Gamma launch?
+ A: Gamma is scheduled to launch on September 15, 2024.
+ Top chunk similarity: 0.670
+
+ Q: What are the main risks?
+ A: The main risks identified in the context are:
+
+1.  **Beta churn** exceeding 5%.
+2.  **Gamma launch delay** beyond September 30.
+3.  **Key person depen
+ Top chunk similarity: 0.510
+
+ Q: What is the combined Q3 revenue target?
+ A: $18.6M
+ Top chunk similarity: 0.695
+
+============================================================
+ Strategy: Sentence / LlamaIndex
+ Chunks: 2, Avg size: 982 chars
+============================================================
+
+ Q: What is Product Alpha's revenue?
+ A: Product Alpha achieved Q2 revenue of $12.4M and has a Q3 revenue target of $14.2M.
+ Top chunk similarity: 0.648
+
+ Q: What is the churn rate for Beta?
+ A: The text states that Beta's Q2 revenue stabilized after a pricing restructure but does not provide specific churn figures for Product Beta, only menti
+ Top chunk similarity: 0.546
+
+ Q: When does Gamma launch?
+ A: September 15, 2024
+ Top chunk similarity: 0.522
+
+ Q: What are the main risks?
+ A: Based on the provided context, the main risks are:
+
+1.  **Competitive threat** from Nexus Corp's new enterprise offering (High impact).
+2.  **Beta chu
+ Top chunk similarity: 0.494
+
+ Q: What is the combined Q3 revenue target?
+ A: $18.6M
+ Top chunk similarity: 0.637
+
+============================================================
+ Comparison complete. Review answers for quality differences.
+============================================================
