@@ -1,0 +1,4 @@
+Sentences indexed: 36
+Window size: 2 sentences each side
+
+Answer: Product Alpha faces increased competition in the mid-market segment, particularly from Dataview Inc., which has launched a competing product at a 40% lower price point. Sales team feedback indicates that while Dataview is winning deals based on pricing, it lacks the reliability and integration depth of Acme's platform. Consequently, three pipeline deals with a combined value of $2.1M are currently in competitive review.
