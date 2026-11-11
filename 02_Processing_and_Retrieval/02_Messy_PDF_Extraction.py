@@ -162,6 +162,61 @@ def extract_tables_pdfplumber(pdf_path: str) -> List[ExtractedTable]:
         return tables
 
 
+
+def merge_split_tables(pages):
+    """
+    Merge tables spanning consecutive PDF pages
+    when their column headers match.
+    """
+
+    previous_table = None
+    previous_page_number = None
+
+    for page in pages:
+        if not page.tables:
+            previous_table = None
+            previous_page_number = None
+            continue
+
+        current_table = page.tables[0]
+
+        if (
+            previous_table is not None
+            and page.page_number == previous_page_number + 1
+            and current_table.headers
+            and [str(h or "").strip().lower()
+                 for h in previous_table.headers]
+            == [str(h or "").strip().lower()
+                for h in current_table.headers]
+        ):
+            new_rows = [
+                row for row in current_table.rows
+                if [str(cell or "").strip().lower() for cell in row]
+                != [str(h or "").strip().lower()
+                    for h in current_table.headers]
+            ]
+
+            previous_table.rows.extend(new_rows)
+
+            print(
+                f"Merged table from page {page.page_number} "
+                f"into page {previous_table.page_number}"
+            )
+
+            page.tables.pop(0)
+
+            # Keep previous_table pointing to the original
+            # merged table for possible continuation on page 3.
+        else:
+            previous_table = current_table
+
+        previous_page_number = page.page_number
+
+        if page.tables:
+            previous_table = page.tables[-1]
+
+    return pages
+
 def extract_with_column_detection(pdf_path: str) -> List[PageContent]:
     """
     Extract text from PDF with multi-column layout detection.
@@ -465,7 +520,10 @@ class PDFExtractionPipeline:
         print(f"[3/5] Extracting tables...")
         tables = extract_tables_pdfplumber(self.pdf_path)
         print(f" Found {len(tables)} tables")
-
+        
+        for table in tables:
+            pages[table.page_number - 1].tables.append(table)
+        
         print(f"[4/5] Processing scanned pages with OCR...")
         for page in pages:
             if page.is_scanned:
@@ -480,6 +538,14 @@ class PDFExtractionPipeline:
         for page in pages:
             cleaned = remove_headers_footers(page.text, hf)
             full_text += f"\n\n[Page {page.page_number}]\n{cleaned}"
+        
+        # Merge tables that continue across pages
+        pages = merge_split_tables(pages)
+        tables = [
+            table
+            for page in pages
+            for table in page.tables
+        ]
 
         # Insert table markdown at appropriate positions
         for table in tables:
@@ -550,7 +616,13 @@ def demo_with_sample_text():
     print("=" * 70)
     
     # Simulate what the pipeline produces
-    chunks = chunk_with_structure(ACME_MEMO_EXCERPT, max_chunk_size=400, overlap=50)
+    #chunks = chunk_with_structure(ACME_MEMO_EXCERPT, max_chunk_size=400, overlap=50)
+    chunks = PDFExtractionPipeline(
+        "../datasets/iso27001.pdf",
+        chunk_size=400,
+        chunk_overlap=50
+        ).extract()
+    
     print(f"\nGenerated {len(chunks)} structure-aware chunks:\n")
 
     for i, chunk in enumerate(chunks):
